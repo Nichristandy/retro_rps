@@ -208,22 +208,29 @@ export default function GamePage(){
               </div>
             )}
 
-            <div className="grid grid-cols-3 gap-4">
-              <button onClick={() => playGame('rock')} disabled={!!playerChoice} className="py-8 px-4 text-lg font-bold disabled:opacity-50" style={{ fontFamily: 'Tahoma, Arial, sans-serif', background: 'linear-gradient(180deg, #E0E0E0 0%, #C0C0C0 100%)', border: '2px outset #FFFFFF', boxShadow: '2px 2px 0 rgba(0,0,0,0.3)' }}>
-                <div className="text-5xl mb-2">✊</div>
-                Rock
-              </button>
-
-              <button onClick={() => playGame('paper')} disabled={!!playerChoice} className="py-8 px-4 text-lg font-bold disabled:opacity-50" style={{ fontFamily: 'Tahoma, Arial, sans-serif', background: 'linear-gradient(180deg, #E0E0E0 0%, #C0C0C0 100%)', border: '2px outset #FFFFFF', boxShadow: '2px 2px 0 rgba(0,0,0,0.3)' }}>
-                <div className="text-5xl mb-2">✋</div>
-                Paper
-              </button>
-
-              <button onClick={() => playGame('scissors')} disabled={!!playerChoice} className="py-8 px-4 text-lg font-bold disabled:opacity-50" style={{ fontFamily: 'Tahoma, Arial, sans-serif', background: 'linear-gradient(180deg, #E0E0E0 0%, #C0C0C0 100%)', border: '2px outset #FFFFFF', boxShadow: '2px 2px 0 rgba(0,0,0,0.3)' }}>
-                <div className="text-5xl mb-2">✌️</div>
-                Scissors
-              </button>
-            </div>
+<div className="grid grid-cols-3 gap-4 w-full max-w-md mx-auto">
+  {[
+    { label: "Rock", icon: "✊", value: "rock" },
+    { label: "Paper", icon: "✋", value: "paper" },
+    { label: "Scissors", icon: "✌️", value: "scissors" },
+  ].map(({ label, icon, value }) => (
+    <button
+      key={value}
+      onClick={() => playGame(value)}
+      disabled={!!playerChoice}
+      className="flex flex-col items-center justify-center py-6 sm:py-8 px-2 sm:px-4 text-sm sm:text-lg font-bold disabled:opacity-50 w-full aspect-square"
+      style={{
+        fontFamily: 'Tahoma, Arial, sans-serif',
+        background: 'linear-gradient(180deg, #E0E0E0 0%, #C0C0C0 100%)',
+        border: '2px outset #FFFFFF',
+        boxShadow: '2px 2px 0 rgba(0,0,0,0.3)',
+      }}
+    >
+      <div className="text-4xl sm:text-5xl mb-1 sm:mb-2 leading-none">{icon}</div>
+      <span className="text-xs sm:text-base whitespace-nowrap">{label}</span>
+    </button>
+  ))}
+</div>
           </div>
         </div>
 
