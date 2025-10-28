@@ -1,0 +1,1 @@
+export default function GameBoard({ onPlay }) { const choices = ['rock','paper','scissors']; return (<div className='flex gap-3'>{choices.map(c=> <button key={c} onClick={()=>onPlay(c)} className='px-4 py-3 rounded-lg bg-white/90'>{c.toUpperCase()}</button>)}</div>) }

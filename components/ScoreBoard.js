@@ -1,0 +1,1 @@
+export default function ScoreBoard({ wins, losses, ties }) { return (<div className='flex gap-6'><div>Wins: <strong>{wins}</strong></div><div>Losses: <strong>{losses}</strong></div><div>Ties: <strong>{ties}</strong></div></div>) }

@@ -1,0 +1,1 @@
+export const CHOICES=['rock','paper','scissors']; export function getResult(user,cpu){ if(user===cpu) return 'tie'; if((user==='rock'&&cpu==='scissors')||(user==='paper'&&cpu==='rock')||(user==='scissors'&&cpu==='paper')) return 'win'; return 'lose'; }

@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.app-bg{min-height:100vh;background-image:url('/images/retro_clouds.png');background-size:cover}
+.card-bg{background:rgba(255,255,255,0.85);backdrop-filter:blur(6px)}
