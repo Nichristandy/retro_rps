@@ -1,7 +1,13 @@
-node_modules
-npm-debug.log
+# environment files
 .env
+.env.local
 
-# next.js build output
+# build
 .next
 out
+
+# dependencies
+node_modules
+
+# system files
+.DS_Store
