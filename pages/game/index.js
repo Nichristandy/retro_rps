@@ -100,7 +100,7 @@ export default function GamePage(){
       } catch (err) {
         console.error('Error fetch win image', err)
       }
-    } else if (currentLosses >= 3) {
+    } else if (currentLosses >= 5) {
       setGameResult('lose')
       setShowModal(true)
     } else {
