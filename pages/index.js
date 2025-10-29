@@ -101,7 +101,7 @@ const handleLogin = async () => {
           <div className="flex items-center gap-2">
             <div className="w-4 h-4 bg-white" style={{ border: '1px solid #000' }}></div>
             <span className="text-white font-bold text-sm" style={{ fontFamily: 'Tahoma, Arial, sans-serif' }}>
-              Rock Paper Scissors - Login
+              accrochea’s - login center
             </span>
           </div>
           <div className="flex gap-1">
@@ -115,20 +115,43 @@ const handleLogin = async () => {
         </div>
 
         <div className="p-6">
-          <div className="text-center mb-6 p-4" style={{ background: '#FFFFFF', border: '2px inset #808080' }}>
-            <h1 className="text-3xl font-bold mb-2" 
-                style={{ fontFamily: 'Arial, sans-serif', color: '#000080', textShadow: '2px 2px 0 #C0C0C0' }}>
-              Rock Paper Scissors
-            </h1>
-            <div className="flex justify-center gap-2 text-3xl mb-2">
-              <span>✊</span>
-              <span>✋</span>
-              <span>✌️</span>
-            </div>
-            <p className="text-sm" style={{ fontFamily: 'Tahoma, Arial, sans-serif', color: '#000080' }}>
-              Welcome to Windows Game!
-            </p>
-          </div>
+<div
+  className="text-center mb-6 px-4 py-6 sm:p-6 rounded-md"
+  style={{
+    background: '#FFFFFF',
+    border: '2px inset #808080',
+    maxWidth: '600px',
+    margin: '0 auto',
+  }}
+>
+  <h1
+    className="text-2xl sm:text-3xl font-bold mb-4 leading-snug sm:leading-normal"
+    style={{
+      fontFamily: 'Arial, sans-serif',
+      color: '#000080',
+      textShadow: '2px 2px 0 #C0C0C0',
+      wordWrap: 'break-word',
+    }}
+  >
+    welcome to nostalorn, the last day.
+    <br className="hidden sm:block" />
+    thank you for surviving this far.
+  </h1>
+
+  <p
+    className="text-xs sm:text-sm leading-relaxed sm:leading-normal"
+    style={{
+      fontFamily: 'Tahoma, Arial, sans-serif',
+      color: '#000080',
+      maxWidth: '480px',
+      margin: '0 auto',
+    }}
+  >
+    shall we play a little game first? put your username and the password
+    that has been given by mnemons.
+  </p>
+</div>
+
 
           {loginError && (
             <div className="mb-4 p-3 text-center"
@@ -206,7 +229,7 @@ const handleLogin = async () => {
                 {loading ? 'Loading...' : 'OK'}
               </button>
               <button
-                onClick={handleRegister}
+                onClick={handleLogin}
                 className="px-8 py-2 text-sm font-bold"
                 disabled={loading}
                 style={{
@@ -217,7 +240,7 @@ const handleLogin = async () => {
                   opacity: loading ? 0.6 : 1
                 }}
               >
-                Register
+                Iya Iya gue masukin
               </button>
             </div>
           </div>

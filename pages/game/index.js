@@ -71,7 +71,7 @@ export default function GamePage(){
     const currentWins = updatedScore.wins
     const currentLosses = updatedScore.losses
 
-    if (currentWins >= 3) {
+    if (currentWins >= 5) {
       try {
         // pastikan profile ada (ambil kode unik)
         const { code } = await ensureUserProfile(user)
