@@ -241,6 +241,7 @@ export default function GamePage(){
           <button onClick={quitToMenu} className="px-6 py-2 text-sm font-bold" style={{ fontFamily: 'Tahoma, Arial, sans-serif', background: 'linear-gradient(180deg, #E0E0E0 0%, #C0C0C0 100%)', border: '2px outset #FFFFFF', boxShadow: '2px 2px 0 rgba(0,0,0,0.3)' }}>
             Exit Game
           </button>
+                   
         </div>
 
         {showModal && (
@@ -287,11 +288,18 @@ export default function GamePage(){
                     <p className="text-lg text-center mb-6" style={{ fontFamily: 'Tahoma, Arial, sans-serif' }}>Better luck next time!</p>
                   </div>
                 )}
-
+                <div className='flex flex-col gap-3 '>
                 <div className="flex justify-center gap-3">
                   <button onClick={resetGame} className="px-6 py-2 text-sm font-bold" style={{ fontFamily: 'Tahoma, Arial, sans-serif', background: 'linear-gradient(180deg, #E0E0E0 0%, #C0C0C0 100%)', border: '2px outset #FFFFFF', boxShadow: '1px 1px 0 rgba(0,0,0,0.5)' }}>Play Again</button>
                   <button onClick={quitToMenu} className="px-6 py-2 text-sm font-bold" style={{ fontFamily: 'Tahoma, Arial, sans-serif', background: 'linear-gradient(180deg, #E0E0E0 0%, #C0C0C0 100%)', border: '2px outset #FFFFFF', boxShadow: '1px 1px 0 rgba(0,0,0,0.5)' }}>Exit</button>
                 </div>
+                <div className='flex justify-center gap-3'>
+                  <button onClick={()=> window.open("https://drive.google.com/drive/folders/1TUuonWkRt2X-mVAwR-GjDV3gP-zFsTBk", "_blank")} className="px-6 py-2 text-sm font-bold" style={{ fontFamily: 'Tahoma, Arial, sans-serif', background: 'linear-gradient(180deg, #E0E0E0 0%, #C0C0C0 100%)', border: '2px outset #FFFFFF', boxShadow: '2px 2px 0 rgba(0,0,0,0.3)' }}>
+            click here to claim your gift
+          </button>
+                </div>
+                </div>
+                
               </div>
             </div>
           </div>
