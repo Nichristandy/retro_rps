@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const text = "someday you’ll thank yourself for letting go when it felt impossible";
+const text = "Someday You Will Thank Yourself For Letting Go When It Felt Impossible";
 const words = text.split(" ");
 
 const containerVariants = {

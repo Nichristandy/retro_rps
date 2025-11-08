@@ -71,28 +71,31 @@ export default function GamePage(){
     const currentWins = updatedScore.wins
     const currentLosses = updatedScore.losses
 
-    if (currentWins >= 5) {
+    if (currentWins >= 0) {
       try {
         // pastikan profile ada (ambil kode unik)
-        const { code } = await ensureUserProfile(user)
+        const { username } = await ensureUserProfile(user)
 
         // cek apakah ada image dengan kode unik itu
-        const { data: list } = await supabase.storage
-          .from('user_images')
-          .list('', { search: `${code}.png` })
+  const { data, error } = await supabase.storage
+    .from('user_images')
+    .download(`${username}.png`)
+         
 
         let imageUrl = ''
-        if (list && list.length > 0) {
-          const { data } = supabase.storage
-            .from('user_images')
-            .getPublicUrl(`${code}.png`)
-          imageUrl = data.publicUrl
-        } else {
-          const { data } = supabase.storage
-            .from('user_images')
-            .getPublicUrl('default_win.png')
-          imageUrl = data.publicUrl
-        }
+ if (!error) {
+    // file exists
+    const { data: urlData } = supabase.storage
+      .from('user_images')
+      .getPublicUrl(`${username}.png`)
+    imageUrl = urlData.publicUrl
+  } else {
+    // fallback default
+    const { data: urlData } = supabase.storage
+      .from('user_images')
+      .getPublicUrl('default_win.png')
+    imageUrl = urlData.publicUrl
+  }
 
         setImgUrl(imageUrl)
         setGameResult('win')
@@ -255,9 +258,15 @@ export default function GamePage(){
               <div className="p-6">
                 {gameResult === 'win' ? (
                   <div>
-                    <div className="p-8 mb-4 text-center" style={{ background: '#FFFFFF', border: '2px inset #808080' }}>
+                    <div className="text-center" style={{ background: '#FFFFFF', border: '2px inset #808080' }}>
                       {imgUrl ? (
-                        <img src={imgUrl} alt="Victory" className="w-full h-64 object-cover rounded" />
+                        <img
+  src={imgUrl}
+  alt="Victory"
+  className="w-full h-full object-contain"
+  style={{ maxHeight: '256px' }}
+/>
+
                       ) : (
                         <>
                           <div className="text-8xl mb-4">🏆</div>
