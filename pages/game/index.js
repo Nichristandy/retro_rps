@@ -23,19 +23,34 @@ export default function GamePage(){
     })
   },[])
 
-  const cpuPick = (playerChoice) => {
-  const roll = Math.random()
+const cpuPick = (playerChoice, currentWins) => {
+  let roll = Math.random()
+  let userWinChance
+  let tieChance
+  let cpuWinChance
 
-  if (roll < 0.55) {
-    // 55% user menang
+  if (currentWins < 2) {
+    userWinChance = 0.60
+    tieChance     = 0.25
+    cpuWinChance  = 0.15
+  } else if (currentWins < 4) {
+    userWinChance = 0.45
+    tieChance     = 0.35
+    cpuWinChance  = 0.20
+  } else {
+    // almost final → random fair
+    userWinChance = 0.33
+    tieChance     = 0.33
+    cpuWinChance  = 0.34
+  }
+
+  if (roll < userWinChance) {
     if (playerChoice === 'rock') return 'scissors'
     if (playerChoice === 'paper') return 'rock'
     if (playerChoice === 'scissors') return 'paper'
-  } else if (roll < 0.85) {
-    // 30% tie
+  } else if (roll < userWinChance + tieChance) {
     return playerChoice
   } else {
-    // 15% cpu menang
     if (playerChoice === 'rock') return 'paper'
     if (playerChoice === 'paper') return 'scissors'
     if (playerChoice === 'scissors') return 'rock'
@@ -43,7 +58,7 @@ export default function GamePage(){
 }
 
   const playGame = async (choice) => {
-  const cpu = cpuPick(choice)
+  const cpu = cpuPick(choice, score.wins)
   setPlayerChoice(choice)
   setComputerChoice(cpu)
 
