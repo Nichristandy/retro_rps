@@ -172,7 +172,7 @@ export default function Home() {
                     wordWrap: 'break-word',
                   }}
                 >
-                  welcome to Ostalorn, the last day.
+                  welcome to Nostalorn, the last day.
                   <br className="hidden sm:block" />
                   thank you for surviving this far.
                 </h1>
