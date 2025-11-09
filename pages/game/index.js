@@ -23,8 +23,27 @@ export default function GamePage(){
     })
   },[])
 
+  const cpuPick = (playerChoice) => {
+  const roll = Math.random()
+
+  if (roll < 0.55) {
+    // 55% user menang
+    if (playerChoice === 'rock') return 'scissors'
+    if (playerChoice === 'paper') return 'rock'
+    if (playerChoice === 'scissors') return 'paper'
+  } else if (roll < 0.85) {
+    // 30% tie
+    return playerChoice
+  } else {
+    // 15% cpu menang
+    if (playerChoice === 'rock') return 'paper'
+    if (playerChoice === 'paper') return 'scissors'
+    if (playerChoice === 'scissors') return 'rock'
+  }
+}
+
   const playGame = async (choice) => {
-  const cpu = CHOICES[Math.floor(Math.random() * 3)]
+  const cpu = cpuPick(choice)
   setPlayerChoice(choice)
   setComputerChoice(cpu)
 
